@@ -6,7 +6,7 @@ import {BACKEND_URL} from "../staticData.js"
 import {Typography, Button, IconButton, Grid, Card, CardContent, CardMedia } from '@mui/material';
 import AppPagination from './AppPagination';
 import Autofill from './Autofill';
-
+import {BACKEND} from '../staticData'
 export default function Products(){
     const [productList, setProductList] = useState([]);
     const navigate = useNavigate();
@@ -17,7 +17,7 @@ export default function Products(){
         console.log("front end going to fetch data from backend")
       try
       {
-            var response = await axios.get('http://localhost:8000/products/get');
+            var response = await axios.get(`${BACKEND}/products/get`);
             console.log("response data",response.data);
             setProductList(response.data)
         }
